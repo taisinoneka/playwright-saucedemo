@@ -18,6 +18,7 @@ test.describe("Login flow", async () => {
     let loginPage = new LoginPage(page);
     await loginPage.navigate();
     await loginPage.login("standard_user", "secret_sauce");
+    await loginPage.expectUserLoggedIn();
   });
   test("Error case: Non existant user", async ({ page }) => {
     let loginPage = new LoginPage(page);
@@ -44,6 +45,7 @@ test.describe("Login flow", async () => {
     let productsPage = new ProductsPage(page);
     await loginPage.navigate();
     await loginPage.login("standard_user", "secret_sauce");
+    await loginPage.expectUserLoggedIn();
     await productsPage.burgerMenu.click();
     await productsPage.logoutBtn.click();
   });
