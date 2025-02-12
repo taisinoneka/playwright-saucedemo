@@ -19,14 +19,15 @@ class LoginPage {
     await this.usernameInput.fill(username);
     await this.passwordInput.fill(password);
     await this.loginButton.click();
-    expect(this.pageHeader).toBeVisible();
-    expect(this.pageFooter).toBeVisible();
-    expect(this.page.url()).toBe(this.urlAfterLogin);
   }
   async expectErrorMessage(err) {
     expect(this.page.getByText(err)).toBeVisible();
   }
-
+  async expectUserLoggedIn() {
+    expect(this.page.url()).toBe(this.urlAfterLogin);
+    expect(this.pageHeader).toBeVisible();
+    expect(this.pageFooter).toBeVisible();
+  }
   async expectLoginPage() {
     expect(this.page.url()).toBe(this.loginPageUrl);
     expect(this.loginButton).toBeVisible();
