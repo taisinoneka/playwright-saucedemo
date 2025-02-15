@@ -70,6 +70,12 @@ export default defineConfig({
     //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
     // },
   ],
+  timeout: 30 * 1000,
+  expect: {
+    // Maximum time expect() should wait for the condition to be met.
+    timeout: 5000,
+  },
+
 
   /* Run your local dev server before starting the tests */
   // webServer: {

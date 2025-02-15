@@ -25,7 +25,7 @@ class ProductsPage {
   async clickItemLink(itemName) {
     //#inventory_container .inventory_item_label a
     await this.page
-      .locator(`//div[contains(text(),'${itemName}')]/parent::a`)
+      .locator(`//div[contains(text(),'${itemName.name}')]/parent::a`)
       .click();
   }
 
