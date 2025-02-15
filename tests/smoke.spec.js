@@ -37,7 +37,7 @@ test.describe("Login flow", async () => {
   test("Error case: Empty Username field", async ({ page }) => {
     let loginPage = new LoginPage(page);
     await loginPage.navigate();
-    await loginPage.login("", "secret_sauce");
+    await loginPage.login("", "");
     await loginPage.expectErrorMessage("Epic sadface: Username is required");
   });
   test("Login and logout", async ({ page }) => {
@@ -87,7 +87,7 @@ test.describe("Purchase product flow", async () => {
     let productsPage = new ProductsPage(page);
     let item = await productsPage.getItemAttributes("Sauce Labs Backpack");
     console.log(item);
-    await productsPage.clickItemLink(item.name);
+    await productsPage.clickItemLink(item);
     await productsPage.expectCorrectItem(item);
   });
 });
